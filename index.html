@@ -1,0 +1,1271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>PKM Comparison — Note-Taking Apps Compared Side by Side</title>
+<meta name="description" content="Interactive comparison of 18 note-taking and PKM apps: block transclusion, PDF annotation, custom types, local-first storage, sync and Markdown.">
+<meta name="author" content="Mahdi Porkari">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://mahdiporkari.github.io/PKM-Comparison/">
+<meta name="theme-color" content="#f6f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1714" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c4532f'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23fff7ec'%3EPKM%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PKM Comparison">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://mahdiporkari.github.io/PKM-Comparison/">
+<meta property="og:title" content="PKM Comparison — Note-Taking Apps Compared Side by Side">
+<meta property="og:description" content="Interactive comparison of 18 note-taking and PKM apps: block transclusion, PDF annotation, custom types, local-first storage, sync and Markdown.">
+<meta property="og:image" content="https://mahdiporkari.github.io/PKM-Comparison/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PKM Comparison: 18 note-taking apps compared side by side, shown with a grid of check, partial and cross marks.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PKM Comparison — Note-Taking Apps Compared Side by Side">
+<meta name="twitter:description" content="Interactive comparison of 18 note-taking and PKM apps: block transclusion, PDF annotation, custom types, local-first storage, sync and Markdown.">
+<meta name="twitter:image" content="https://mahdiporkari.github.io/PKM-Comparison/og-image.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "PKM Comparison — Note-Taking Apps Compared Side by Side", "description": "Interactive comparison of 18 note-taking and PKM apps: block transclusion, PDF annotation, custom types, local-first storage, sync and Markdown.", "url": "https://mahdiporkari.github.io/PKM-Comparison/", "inLanguage": "en", "dateModified": "2026-10-30", "mainEntity": {"@type": "ItemList", "name": "Compared PKM apps", "numberOfItems": 18, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "AFFiNE"}, {"@type": "ListItem", "position": 2, "name": "Agaric"}, {"@type": "ListItem", "position": 3, "name": "Anytype"}, {"@type": "ListItem", "position": 4, "name": "Capacities"}, {"@type": "ListItem", "position": 5, "name": "Craft Docs"}, {"@type": "ListItem", "position": 6, "name": "Fibery"}, {"@type": "ListItem", "position": 7, "name": "Heptabase"}, {"@type": "ListItem", "position": 8, "name": "Logseq OG"}, {"@type": "ListItem", "position": 9, "name": "Logseq DB"}, {"@type": "ListItem", "position": 10, "name": "Notion"}, {"@type": "ListItem", "position": 11, "name": "Obsidian"}, {"@type": "ListItem", "position": 12, "name": "outl"}, {"@type": "ListItem", "position": 13, "name": "Reflect Open"}, {"@type": "ListItem", "position": 14, "name": "SiYuan"}, {"@type": "ListItem", "position": 15, "name": "Tana"}, {"@type": "ListItem", "position": 16, "name": "TiddlyWiki"}, {"@type": "ListItem", "position": 17, "name": "Tine"}, {"@type": "ListItem", "position": 18, "name": "Trilium"}]}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f6f2ec;
+    --bg-glow: #f1e3d6;
+    --panel: #fffdfa;
+    --panel-soft: #faf5ee;
+    --head: #efe7dc;
+    --line: #e6ddd2;
+    --line-soft: #f0e9e0;
+    --text: #2a2522;
+    --text-2: #4d443e;
+    --muted: #6f655d;
+    --accent: #c4532f;
+    --accent-ink: #9c3e20;
+    --accent-soft: #f8e4da;
+    --head-on: #fff7ec;
+    --hover: #fbf3ea;
+    --ok: #2f6b4f;      --ok-bg: #deeee3;
+    --mid: #8a5a12;     --mid-bg: #f9ebcc;
+    --bad: #a1423a;     --bad-bg: #f7dfdb;
+    --cloud: #4d6b80;   --cloud-bg: #e0ebf2;
+    --unk: #6b6560;     --unk-bg: #ebe7e2;
+    --shadow: 0 1px 2px rgba(60,40,28,.05), 0 10px 30px rgba(60,40,28,.07);
+    --radius: 16px;
+    --sans: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    --serif: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
+    --row-h: 42px;
+    --head-h: 66px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #1a1714; --bg-glow: #2a1f18;
+      --panel: #221e1b; --panel-soft: #272220; --head: #2d2723;
+      --line: #3a332e; --line-soft: #2f2926;
+      --text: #f1ebe4; --text-2: #d8cfc5; --muted: #a99d92;
+      --accent: #e98a64; --accent-ink: #f0a283; --accent-soft: #3a2a21;
+      --head-on: #54402f;
+      --hover: #2a2420;
+      --ok: #8fd3ad; --ok-bg: #20382b;
+      --mid: #efc577; --mid-bg: #3b2f17;
+      --bad: #f0a198; --bad-bg: #3d2421;
+      --cloud: #9cc3dc; --cloud-bg: #1f3140;
+      --unk: #bdb4ab; --unk-bg: #332f2b;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    background: radial-gradient(ellipse 80rem 40rem at 0% 0%, var(--bg-glow), transparent 70%), var(--bg);
+    color: var(--text);
+    font: 400 15px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: var(--accent-ink); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+  .wrap { width: min(1560px, calc(100% - 40px)); margin: 0 auto; padding: 28px 0 72px; }
+
+  /* Header */
+  header { max-width: 860px; margin-bottom: 36px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font: 600 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); }
+  .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--accent); border-radius: 2px; }
+  h1 { margin: 16px 0 14px; font: 600 clamp(2rem, 4.2vw, 3.2rem)/1.1 var(--serif); letter-spacing: -.02em; }
+  .lede { margin: 0; font-size: 1.05rem; color: var(--muted); max-width: 680px; }
+
+  /* Summary */
+  .summary-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-bottom: 40px; }
+  .summary { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .summary .icon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); font-size: 1.2rem; margin-bottom: 14px; }
+  .summary strong { display: block; font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+  .summary p { margin: 0; color: var(--muted); font-size: .9rem; }
+  .summary b { color: var(--text-2); font-weight: 600; }
+
+  /* Toolbar */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .searchbox { display: flex; align-items: center; gap: 10px; width: min(420px, 100%); padding: 0 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 1px 2px rgba(60,40,28,.04); }
+  .searchbox:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .searchbox input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font: inherit; font-size: .92rem; padding: 12px 0; }
+  .searchbox input::placeholder { color: var(--muted); opacity: .8; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filters button, .motion-btn { font: 500 .84rem var(--sans); color: var(--text-2); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; transition: all .15s ease; }
+  .filters button:hover, .motion-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+  .filters button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .motion-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-ink); }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; justify-content: space-between; margin: 0 0 14px; font-size: .82rem; color: var(--muted); }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .dot { width: 18px; height: 18px; border-radius: 6px; display: inline-grid; place-items: center; font-size: .7rem; font-weight: 700; font-style: normal; }
+  .dot.yes { background: var(--ok-bg); color: var(--ok); }
+  .dot.partial { background: var(--mid-bg); color: var(--mid); }
+  .dot.no { background: var(--bad-bg); color: var(--bad); }
+  .dot.cloud { background: var(--cloud-bg); color: var(--cloud); }
+  .dot.unknown { background: var(--unk-bg); color: var(--unk); }
+  .hint { font-style: normal; }
+
+  /* Table — fixed column widths, fixed row height, one line per text slot */
+  .table-shell { position: relative; overflow: auto; max-height: min(78vh, 900px); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+  table { table-layout: fixed; width: 3014px; border-collapse: separate; border-spacing: 0; }
+  col.c-app { width: 154px; }
+  col.c-data { width: 220px; }
+  .drag-handle { position: absolute; left: 5px; top: 50%; transform: translateY(-50%); z-index: 4; display: inline-grid; place-items: center; width: 20px; height: 28px; color: var(--muted); opacity: .55; cursor: grab; user-select: none; font: 600 15px/1 var(--mono); border-radius: 5px; }
+  .drag-handle:hover, .drag-handle:focus-visible { opacity: 1; color: var(--accent-ink); background: var(--accent-soft); outline: none; }
+  .drag-handle:active { cursor: grabbing; }
+  th[data-key="app"] .drag-handle { display: none; }
+  .move-col { display: none; position: absolute; top: 50%; transform: translateY(-50%); z-index: 4; width: 22px; height: 24px; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--text-2); cursor: pointer; font: 600 13px/1 var(--mono); place-items: center; }
+  .move-left { left: 27px; } .move-right { right: 27px; }
+  .reorder-mode .move-col { display: grid; }
+  .move-col:hover:not(:disabled) { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-soft); }
+  .move-col:disabled { opacity: .25; cursor: not-allowed; }
+  th.drag-over { box-shadow: inset 0 0 0 2px var(--accent); }
+  th.dragging { opacity: .45; }
+  .reorder-note { margin: -5px 0 12px; color: var(--muted); font: 500 .76rem/1.5 var(--mono); display: none; }
+  .reorder-mode + .reorder-note, .reorder-note.show { display: block; }
+  thead th { position: sticky; top: 0; z-index: 3; height: var(--head-h); padding: 0; background: var(--head); border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); text-align: center; }
+  thead th:last-child { border-right: 0; }
+  thead th:first-child { left: 0; z-index: 5; }
+  .fbtn, .sort { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; height: auto; padding: 0; background: none; border: 0; cursor: pointer; color: var(--text-2); font: 600 .78rem/1.3 var(--sans); letter-spacing: .01em; text-align: center; transition: background .15s ease; }
+  .fbtn { left: 0; right: 20%; padding: 0 8px 0 30px; }
+  .sort { left: 80%; right: 0; border-left: 1px solid var(--line); }
+  .fbtn > span:first-child { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .fbtn:hover, .sort:hover { background: rgba(196,83,47,.08); color: var(--text); }
+  .sort .arrow { flex: none; display: inline-flex; flex-direction: column; gap: 2px; opacity: .35; }
+  .fcount { display: none; position: absolute; top: 5px; right: 6px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: var(--accent); color: #fff; font: 700 .64rem/16px var(--mono); }
+  tbody tr.group-row td { height: 34px; padding: 0 12px; position: static; box-shadow: none; z-index: auto; border-right: 0; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; }
+  tbody tr.group-row:hover td { background: inherit; }
+  .glabel { position: sticky; left: 14px; display: inline-flex; align-items: center; gap: 12px; }
+  .glabel b { font-weight: 700; letter-spacing: .1em; }
+  .glabel .gnote, .glabel .gcount { text-transform: none; letter-spacing: 0; font-weight: 500; opacity: .85; }
+  .glabel .gnote { text-transform: uppercase; }
+  .glabel .gcount { font-family: var(--mono); }
+  tr.g-high td, tr.g-high:hover td { background: var(--ok-bg); color: var(--ok); }
+  tr.g-medium td, tr.g-medium:hover td { background: var(--mid-bg); color: var(--mid); }
+  tr.g-low td, tr.g-low:hover td { background: var(--bad-bg); color: var(--bad); }
+  th[data-mode="score"] .sort::after { content: "Σ"; margin-left: 5px; font: 700 .8rem var(--mono); color: var(--accent); }
+  th[data-filtered] { background: var(--head-on); box-shadow: inset 0 -3px 0 var(--accent); }
+  th[data-filtered] .fbtn { color: var(--accent-ink); font-weight: 700; }
+  th[data-filtered] .fcount { display: block; }
+  .reorder-mode .sort { display: none; }
+  .reorder-mode .fbtn { right: 0; padding-left: 52px; padding-right: 52px; }
+  .reorder-mode .fcount { right: 30px; }
+  .sort .arrow i { display: block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; }
+  .sort .arrow i:first-child { border-bottom: 5px solid currentColor; }
+  .sort .arrow i:last-child { border-top: 5px solid currentColor; }
+  th[aria-sort="ascending"] .arrow, th[aria-sort="descending"] .arrow { opacity: 1; color: var(--accent); }
+  th[aria-sort="ascending"] .arrow i:last-child, th[aria-sort="descending"] .arrow i:first-child { opacity: .2; }
+  th[aria-sort="ascending"], th[aria-sort="descending"] { background: var(--accent-soft); }
+  th[data-filtered][aria-sort] { background: var(--head-on); }
+  th[aria-sort="ascending"] .sort, th[aria-sort="descending"] .sort { color: var(--accent-ink); }
+  .filters button:disabled { opacity: .45; cursor: not-allowed; }
+  .filters button:disabled:hover { border-color: var(--line); color: var(--text-2); }
+  .fpop { position: fixed; z-index: 60; width: 260px; max-height: 70vh; overflow: auto; padding: 12px; background: var(--panel); color: var(--text); border: 1px solid var(--accent); border-radius: 12px; box-shadow: 0 12px 34px rgba(40,25,15,.22); font-size: .84rem; display: none; }
+  .fpop.show { display: block; }
+  .fpop h4 { margin: 0 0 8px; font: 600 .78rem/1.3 var(--sans); color: var(--accent-ink); }
+  .fpop label { display: flex; align-items: center; gap: 8px; padding: 6px 6px; border-radius: 8px; cursor: pointer; }
+  .fpop label:hover { background: var(--accent-soft); }
+  .fpop label span.t { flex: 1; }
+  .fpop label em { font: 500 .72rem var(--mono); color: var(--muted); font-style: normal; }
+  .fpop input { accent-color: var(--accent); }
+  .fpop .fp-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .fpop .fp-actions button { flex: 1; font: 500 .78rem var(--sans); color: var(--text-2); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; cursor: pointer; }
+  .fpop .fp-actions button:hover { border-color: var(--accent); color: var(--accent-ink); }
+  .fpop .fp-note { margin: 8px 0 0; color: var(--muted); font-size: .72rem; }
+
+  tbody td { height: var(--row-h); padding: 0 8px; vertical-align: middle; background: var(--panel); border-bottom: 1px solid var(--line-soft); border-right: 1px solid var(--line-soft); }
+  tbody td:last-child { border-right: 0; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: var(--hover); }
+  tbody td:first-child { position: sticky; left: 0; z-index: 2; padding: 0 12px; background: var(--panel-soft); border-right: 1px solid var(--line); box-shadow: 6px 0 10px -8px rgba(60,40,28,.18); }
+  tbody tr:hover td:first-child { background: var(--hover); }
+
+  .app { display: flex; gap: 8px; align-items: center; min-height: 0; }
+  .app-icon { flex: none; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 8px; background: var(--accent-soft); font-size: .95rem; }
+  .app > div:last-child { flex: 1; min-width: 0; }
+  .app-name { display: block; font: 600 .82rem/1.25 var(--serif); color: var(--text); }
+  .app-name:hover { color: var(--accent-ink); }
+
+  /* Cell: status badge + one-line title. Full explanation lives in the hover popover. */
+  .cell { display: grid; grid-template-columns: 20px minmax(0,1fr); gap: 7px; align-items: center; min-width: 0; padding: 4px 5px; border-radius: 10px; cursor: help; transition: background .15s ease; }
+  .cell:hover, .cell:focus-visible, .cell.tip-open { background: var(--accent-soft); }
+  .cell > div { min-width: 0; }
+  .cell strong { display: block; font: 500 .72rem/1.25 var(--serif); color: var(--text); }
+  .cell small, .cell a { display: none; }
+  .mark { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 6px; font-size: .72rem; font-weight: 700; }
+  .yes .mark { background: var(--ok-bg); color: var(--ok); }
+  .partial .mark { background: var(--mid-bg); color: var(--mid); }
+  .no .mark { background: var(--bad-bg); color: var(--bad); }
+  .cloud .mark { background: var(--cloud-bg); color: var(--cloud); }
+  .unknown .mark { background: var(--unk-bg); color: var(--unk); }
+
+  /* Banner-style scrolling for text that doesn't fit its single line */
+  .mq { display: block; overflow: hidden; white-space: nowrap; min-width: 0; }
+  .mq-in { display: inline-block; will-change: transform; }
+  .mq.scroll .mq-in { animation: mq var(--dur, 9s) ease-in-out infinite; }
+  .cell:hover .mq-in, .cell:focus-visible .mq-in, .app-name:hover .mq-in { animation-play-state: paused; }
+  @keyframes mq {
+    0%, 16%  { transform: translateX(0); }
+    46%, 62% { transform: translateX(var(--shift, 0px)); }
+    92%, 100% { transform: translateX(0); }
+  }
+  .no-motion .mq { text-overflow: ellipsis; }
+  .no-motion .mq-in { display: inline; }
+  .no-motion .mq.scroll .mq-in { animation: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .mq { text-overflow: ellipsis; }
+    .mq-in { display: inline; }
+    .mq.scroll .mq-in { animation: none; }
+  }
+
+  /* Hover popover with the full explanation */
+  .tip { position: fixed; z-index: 50; width: min(340px, calc(100vw - 24px)); padding: 14px 16px; background: var(--panel); color: var(--text); border: 1px solid var(--accent); border-radius: 12px; box-shadow: 0 12px 34px rgba(40,25,15,.22); font-size: .85rem; line-height: 1.55; visibility: hidden; opacity: 0; transition: opacity .12s ease; }
+  .tip.show { visibility: visible; opacity: 1; }
+  .tip strong { display: block; margin-bottom: 4px; font-size: .9rem; font-weight: 600; }
+  .tip small { display: block; color: var(--muted); font-size: .84rem; }
+  .tip a { display: inline-block; margin: 8px 12px 0 0; font-size: .82rem; font-weight: 600; }
+
+  .empty { display: none; padding: 36px; text-align: center; color: var(--muted); }
+
+  /* Info cards */
+  .section { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; margin-top: 40px; }
+  .info-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+  h2 { margin: 0 0 14px; font: 600 1.25rem/1.25 var(--serif); letter-spacing: -.01em; }
+  .info-card p, .info-card li { color: var(--muted); font-size: .92rem; }
+  .info-card p { margin: 10px 0; }
+  .info-card b { color: var(--text-2); font-weight: 600; }
+  .info-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .info-card li { padding: 12px 14px; background: var(--panel-soft); border: 1px solid var(--line-soft); border-radius: 12px; }
+  code { font: 500 .85em var(--mono); background: var(--panel-soft); border: 1px solid var(--line-soft); border-radius: 6px; padding: 1px 6px; color: var(--text-2); }
+
+  .sources { margin-top: 16px; }
+  details { border-top: 1px solid var(--line); padding: 4px 0; }
+  details:first-of-type { border-top: 0; }
+  summary { cursor: pointer; padding: 10px 0; font-weight: 600; font-size: .92rem; list-style-position: inside; }
+  summary:hover { color: var(--accent-ink); }
+  .source-links { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 0 12px; }
+  .source-links a { padding: 6px 11px; font-size: .8rem; background: var(--panel-soft); border: 1px solid var(--line); border-radius: 8px; }
+  .source-links a:hover { border-color: var(--accent); text-decoration: none; }
+  footer { margin-top: 28px; font-size: .8rem; color: var(--muted); max-width: 860px; }
+
+  @media (max-width: 900px) {
+    .wrap { width: min(100% - 24px, 1560px); padding-top: 32px; }
+    .summary-grid, .section { grid-template-columns: 1fr; }
+    .toolbar { align-items: stretch; }
+    .table-shell { max-height: 74vh; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .summary, .info-card { transition: transform .2s ease, border-color .2s ease; }
+    .summary:hover, .info-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  }
+
+  /* Chart Styles */
+  .chart-bar-row { display: grid; grid-template-columns: 180px 1fr 60px; align-items: center; gap: 12px; font-size: .88rem; }
+  .chart-bar-label { font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chart-bar-track { background: var(--panel-soft); border: 1px solid var(--line-soft); border-radius: 6px; height: 22px; overflow: hidden; position: relative; display: flex; }
+  .chart-bar-fill { background: linear-gradient(90deg, var(--accent), var(--accent-ink)); height: 100%; border-radius: 5px; transition: width .3s ease; }
+  .chart-bar-score { font-weight: 600; font-family: var(--mono); color: var(--accent-ink); text-align: right; }
+  @media (max-width: 768px) {
+    .chart-bar-row { grid-template-columns: 120px 1fr 45px; font-size: .8rem; }
+  }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Personal Knowledge Management</span>
+    <h1>PKM Comparison</h1>
+    <p class="lede">An interactive side-by-side comparison of 18 note-taking and personal knowledge management (PKM) apps — block transclusion, PDF annotation, custom types, local-first storage, P2P sync, Markdown support, platform apps and more. Search, filter, sort and reorder the columns to find the app that fits your workflow. See the <a href="#disclaimer">disclaimer</a> below.</p>
+  </header>
+
+  <div class="toolbar">
+    <label class="searchbox"><span aria-hidden="true">🔎</span><input id="search" type="search" placeholder="Search apps or features…" aria-label="Search comparison table"></label>
+    <div class="filters" role="group" aria-label="Filter rows">
+      <button id="resetFilters" type="button" disabled title="Clear all column filters">✕ Reset column filters</button>
+      <button class="motion-btn" id="groupBtn" type="button" aria-pressed="true" title="Split sorted apps into High / Medium / Low groups">▤ Groups: On</button>
+      <button class="motion-btn" id="motionBtn" type="button" aria-pressed="false">⏸ Pause scrolling text</button>
+      <button class="motion-btn" id="reorderBtn" type="button" aria-pressed="false" aria-controls="comparison">↔ Reorder columns</button>
+    </div>
+  </div>
+
+  <div class="meta">
+    <div class="legend" aria-label="Legend">
+      <span><i class="dot yes">✓</i>Strong support</span>
+      <span><i class="dot partial">~</i>Partial / plugin / workaround</span>
+      <span><i class="dot no">×</i>Not available</span>
+      <span><i class="dot unknown">?</i>Not confirmed</span>
+      <span><i class="dot cloud">☁</i>Storage / cloud</span>
+    </div>
+    <em class="hint" id="sortHint">Click a column title to filter, the arrow to sort: best first → worst first → original order. Use “Reorder columns” to drag or move feature columns; App stays pinned first.</em>
+  </div>
+
+  <div class="table-shell" tabindex="0" aria-label="Comparison table, scrollable">
+  <table id="comparison">
+    <colgroup>
+      <col class="c-app">
+      <col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data"><col class="c-data">
+    </colgroup>
+    <thead>
+      <tr>
+        <th data-key="app" aria-sort="none"><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🧰 App</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button></th>
+        <th data-key="p2p" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🔗 P2P Sync</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="transclusion" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🪞 Block Transclusion</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="pdf" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>📑 PDF Annotation Linking</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="types" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🏷️ Custom Types / Classes / Object / Tags Properties</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="storage" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>💾 Local First</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="freecloud" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>☁️ Free Cloud Storage</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="repeat" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🔁 Repeat After Completion</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="android" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>📱 Android App</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="windows" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🪟 Windows App</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="mdexport" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>📤 Markdown Export</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="mdsync" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🔄 Live .md Sync</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="html" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>🧾 Render Raw HTML</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+        <th data-key="code" aria-sort="none"><span class="drag-handle" draggable="true" tabindex="0" role="button" aria-label="Drag or use Alt+Left/Right to move this column" title="Drag to reorder · Alt+←/→ also works">⠿</span><button class="fbtn" type="button" aria-haspopup="dialog" aria-expanded="false" title="Filter this column"><span>💻 Code Blocks / Highlighting</span><b class="fcount" aria-hidden="true"></b></button><button class="sort" type="button" aria-label="Sort this column" title="Sort this column"><span class="arrow" aria-hidden="true"><i></i><i></i></span></button><button class="move-col move-left" type="button" data-dir="-1" aria-label="Move column left" title="Move column left">←</button><button class="move-col move-right" type="button" data-dir="1" aria-label="Move column right" title="Move column right">→</button></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- AFFINE -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">🔷</span><div><a class="app-name" href="https://affine.pro/" target="_blank" rel="noopener">AFFiNE ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>Cloud / self-host sync</strong><small>CRDT sync through AFFiNE Cloud or your own Docker server; there is no peer-to-peer engine.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Doc-level embeds</strong><small>Embedded/synced docs reuse whole documents (transclusion), not single blocks.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>Viewer only</strong><small>PDFs open in an attachment viewer; no highlight-to-note linking found.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Databases + tags</strong><small>Database views with typed columns and tags; no custom object classes documented.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — local workspaces</strong><small>Unlimited local workspaces; cloud sync is optional.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>10 GB · 3 members</strong><small>Free cloud plan includes 10 GB, up to 3 members per workspace and 7-day history.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>No recurring-task completion rules are documented.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Android app (capture-first)</strong><small>Official Android app, but the maker says the desktop app is the most complete and mobile mainly captures and reads.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows desktop client (also macOS and Linux).</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Markdown export</strong><small>Docs export cleanly to Markdown.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md files</strong><small>Data lives in a CRDT workspace, not a folder of .md files.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>HTML block preview</strong><small>HTML code blocks support live preview.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax highlighting</strong><small>Code blocks cover 100+ languages with line numbers.</small></div></div></td>
+      </tr>
+      <!-- AGARIC -->
+      <tr data-tags="p2p">
+        <td><div class="app"><span class="app-icon">🍄</span><div><a class="app-name" href="https://github.com/jfolcini/agaric" target="_blank" rel="noopener">Agaric ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Built-in P2P (local WiFi)</strong><small>mDNS discovery, QR/passphrase pairing and a Loro CRDT merge, with no cloud server. Peers must share a local network.</small><a href="https://github.com/jfolcini/agaric" target="_blank" rel="noopener">README ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — ((ULID)) block refs</strong><small>Inline embed of another block’s content with hover preview and backlinks.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Attachments only</strong><small>Files attach to blocks; PDF annotation is not documented.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Typed properties + tags</strong><small>Typed properties (text, number, date, select, reference) and inheriting tags; no custom classes.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — local SQLite</strong><small>Vault is a plain SQLite file on your machine; no accounts.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No cloud service</strong><small>No hosted storage by design; data syncs device to device.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — three repeat modes</strong><small>Recurring tasks with +, .+ and ++ modes and count/date end conditions.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Sideloaded APK</strong><small>Signed arm64 APK (Android 11+) from GitHub Releases; not on the Play Store.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Windows .msi installer (Windows 10 1803+); builds are not code-signed, so SmartScreen warns.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Markdown export</strong><small>Exports Markdown with ULID-to-name resolution; Logseq/Markdown import is also supported.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md files</strong><small>Notes live in SQLite, not in editable .md files.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>Raw HTML rendering is not mentioned.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Code blocks + Mermaid</strong><small>Code blocks and auto-rendered Mermaid diagrams; syntax highlighting is not stated in the README.</small></div></div></td>
+      </tr>
+      <!-- ANYTYPE -->
+      <tr data-tags="types p2p">
+        <td><div class="app"><span class="app-icon">🧩</span><div><a class="app-name" href="https://anytype.io/" target="_blank" rel="noopener">Anytype ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native P2P (local network)</strong><small>Devices sync directly over local network. Encrypted remote backup nodes available.</small><a href="https://doc.anytype.io/anytype/data/sync-and-backup" target="_blank" rel="noopener">Sync &amp; backup ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No block transclusion</strong><small>Object links and embeds exist, but live block-level transclusion is only a roadmap/community request.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>Viewer only</strong><small>PDFs open as file objects; no highlights that link back into notes.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native object types</strong><small>Reusable types, properties, relations, and templates.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local-first</strong><small>Data stored locally on device. Cloud node backup is optional.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>100 MB remote storage</strong><small>Free plan includes 100 MB remote storage node quota.</small><a href="https://anytype.io/pricing/" target="_blank" rel="noopener">Official pricing ↗</a></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Community requests</strong><small>No native repeat-after-done setting confirmed in docs.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native app</strong><small>Official Android client with local storage support.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows desktop app with local-first storage.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes (desktop only)</strong><small>Exports to Markdown, Any-Block, PDF, and HTML.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md vault</strong><small>Markdown is export/import only, not the live database format.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No — source only</strong><small>HTML in code blocks displays as raw source code.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Code blocks + highlighting</strong><small>Syntax highlighting for supported languages.</small></div></div></td>
+      </tr>
+
+      <!-- CAPACITIES -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">🗂️</span><div><a class="app-name" href="https://capacities.io/" target="_blank" rel="noopener">Capacities ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No P2P</strong><small>Syncs directly via Capacities web servers.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — editable block embeds</strong><small>Paste a block reference into an empty block to embed it; edits show in every place the block is used.</small><a href="https://docs.capacities.io/reference/block-based-linking" target="_blank" rel="noopener">Block-based linking ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native PDF highlights + notes</strong><small>Pro/Believer: highlight text, add notes, capture snapshots; highlights become note blocks with Jump to location back into the PDF. AI reader view available.</small><a href="https://docs.capacities.io/reference/basic-types/pdfs" target="_blank" rel="noopener">PDF docs ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native object types</strong><small>Custom objects and schema-driven properties.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No — Cloud required</strong><small>Local offline cache, but cloud sync cannot be disabled.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>5 GB total · 100 MB/month</strong><small>Free Basic plan includes 5 GB total media storage.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Completion Date mode</strong><small>Next task occurrence date is offset relative to completion day.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native app (iOS + Android)</strong><small>Official mobile clients available with offline caching.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows app (Mac + Windows); the web app is also available.</small><a href="https://capacities.io/download-app" target="_blank" rel="noopener">Download ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes</strong><small>Full space exports to Markdown with front matter metadata.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md sync</strong><small>Uses internal application storage format.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No raw HTML preview</strong><small>HTML source text is displayed without web rendering.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>100+ languages</strong><small>Syntax highlighting, line numbers, and Mermaid support.</small></div></div></td>
+      </tr>
+
+      <!-- CRAFT -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">🎨</span><div><a class="app-name" href="https://www.craft.do/" target="_blank" rel="noopener">Craft Docs ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No P2P</strong><small>Syncs via Craft Cloud or Apple iCloud.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Block links + previews</strong><small>Block links show a hover preview, but live editable transclusion is not documented.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No linked highlights</strong><small>Only the OS markup on iOS/iPadOS inside a document; highlights do not link to notes.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Collections &amp; Objects</strong><small>Supports structured Collections for typed database views.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Hybrid — Local or Cloud</strong><small>Supports local spaces on disk or synchronized Craft Cloud spaces.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>1,500 blocks · 1 GB</strong><small>Free plan allows up to 1,500 total blocks and 1 GB file storage.</small><a href="https://www.craft.do/pricing" target="_blank" rel="noopener">Pricing ↗</a></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Built-in tasks</strong><small>Has task dates and inbox, but relative auto-recurrence requires manual resets.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Android &amp; Apple</strong><small>High-performance native applications across iOS, Android, macOS, Windows.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Windows app</strong><small>Craft ships a native Windows client alongside Mac, iOS and Android.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes</strong><small>Export documents to Markdown (.md), PDF, HTML, and Word.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md sync</strong><small>Uses internal document storage formats rather than raw local .md files.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No raw HTML preview</strong><small>HTML displays as source text inside code blocks.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax-highlighted code</strong><small>Rich native code blocks with multi-language highlighting.</small></div></div></td>
+      </tr>
+
+      <!-- FIBERY -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">🧬</span><div><a class="app-name" href="https://fibery.io/" target="_blank" rel="noopener">Fibery ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No P2P</strong><small>Cloud workspace environment.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No block transclusion</strong><small>Documents support mentions and embedded views; block or entity transclusion is a community request.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>Attachment only</strong><small>PDFs are file attachments; no highlight-to-note linking.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Strong native schemas</strong><small>Comprehensive database entity types, fields, and custom relations.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No — Cloud-hosted</strong><small>Requires cloud connection.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>1 GB file storage</strong><small>Free plan includes 1 GB storage for uploads.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Scheduled rules &amp; automation</strong><small>Supports recurring scheduled automations and custom completion scripts.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Native app (iOS + Android)</strong><small>Mobile clients focus on capture, search, and notification workflows.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Desktop app (cloud)</strong><small>Official Windows desktop app with tabs; it wraps the cloud workspace.</small><a href="https://fibery.io/desktop-app" target="_blank" rel="noopener">Fibery desktop app ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes</strong><small>Admin workspace export in Markdown, CSV, and attachments.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md sync</strong><small>Markdown used for migration and export, not live backing storage.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No raw HTML rendering</strong><small>Rich-text displays code snippets without raw web rendering.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Formatted code blocks</strong><small>Language-labelled code formatting inside documents.</small></div></div></td>
+      </tr>
+
+      <!-- HEPTABASE -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">🗺️</span><div><a class="app-name" href="https://heptabase.com/" target="_blank" rel="noopener">Heptabase ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>Cloud sync only</strong><small>Syncs through Heptabase’s cloud; no peer-to-peer option.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not confirmed</strong><small>Card references and backlinks are documented; live block embeds are not confirmed.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>PDF highlight-to-card</strong><small>Built-in PDF reader where highlights become cards linked to the source. Mobile annotation is still in progress.</small><a href="https://wiki.heptabase.com/roadmap" target="_blank" rel="noopener">Public roadmap ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Tags with properties</strong><small>Tag databases with properties, nested tags and table views.</small><a href="https://wiki.heptabase.com/roadmap" target="_blank" rel="noopener">Public roadmap ↗</a></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Offline-capable, cloud-synced</strong><small>Works offline with a local copy, but an account and cloud sync are core to the product.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No free plan</strong><small>Paid subscription (from about $11.99/month) with sync included.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>No recurring-task completion rules are documented.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Android app</strong><small>Mobile apps for iOS and Android.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows desktop app.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Markdown export</strong><small>Exports cards as Markdown with YAML metadata for tags and properties.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md files</strong><small>Data is stored in Heptabase’s own format, not editable .md files.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not confirmed</strong><small>Raw HTML rendering is not documented.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Code blocks</strong><small>Card editor supports code blocks with syntax highlighting.</small></div></div></td>
+      </tr>
+      <!-- LOGSEQ OG -->
+      <tr data-tags="markdown p2p">
+        <td><div class="app"><span class="app-icon">🪵</span><div><a class="app-name" href="https://logseq.com/" target="_blank" rel="noopener">Logseq OG ↗</a></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Via Syncthing / Git</strong><small>Plain Markdown folder synced peer-to-peer via Syncthing, Git, or folder utilities.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — {{embed ((uuid))}}</strong><small>Native block embeds (with children) and ((block refs)) in file graphs; edit in place.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native PDF highlights</strong><small>Text and area highlights become blocks (hl:: properties) that jump back to the exact spot; Zotero-friendly.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Block properties &amp; tags</strong><small>Key:: value properties and page/tag hierarchies.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local-first vault</strong><small>Local-first filesystem vault storing raw .md or .org text files.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>0 GB included free</strong><small>Logseq OG software is free/open-source; official Logseq Sync is paid.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — native repeat task</strong><small>Syntax like <code>.+1w</code> advances SCHEDULED dates relative to completion day.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Android app</strong><small>Official Android client editing local Markdown folders.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Desktop app (OG 0.10.x)</strong><small>Electron desktop app for file graphs (plain .md/.org). Separate build line from Logseq DB.</small><a href="https://github.com/logseq/logseq/releases" target="_blank" rel="noopener">Releases ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native format</strong><small>Data stored directly as plain Markdown files on disk.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — true .md graph</strong><small>Edits directly update filesystem notes for immediate external sync.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — sanitized HTML</strong><small>Renders inline HTML safely within notes.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax highlighting</strong><small>Code blocks support Prism syntax highlighting and plugin runners.</small></div></div></td>
+      </tr>
+
+      <!-- LOGSEQ DB -->
+      <tr data-tags="types p2p">
+        <td><div class="app"><span class="app-icon">⚡</span><div><a class="app-name" href="https://github.com/logseq/logseq" target="_blank" rel="noopener">Logseq DB ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No P2P (cloud RTC only)</strong><small>DB graphs sync through Logseq's cloud RTC (real-time collaboration), which is still alpha; there is no peer-to-peer sync yet.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — DB block refs &amp; embeds</strong><small>Block references and embeds work on DB graphs, linked by DB entity rather than OG file UUID lines.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>PDF highlights (DB graphs)</strong><small>PDF highlight blocks work on DB graphs (recent changelogs fix PDF styling and Zotero PDF import). Not OG hl:: files.</small><a href="https://discuss.logseq.com/t/logseq-db-changelog/30013/34" target="_blank" rel="noopener">DB changelog ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Classes &amp; Tags</strong><small>First-class schema properties, class inheritance, assets, and custom views.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local database</strong><small>Local-first database storage on disk rather than text files.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>0 GB included free</strong><small>Core app is free and local-first; remote RTC sync is paid.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — #Task properties</strong><small>Built-in #Task tag with dedicated Status, Priority, and Recurrence fields.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Android alpha (DB)</strong><small>New DB mobile app is alpha (not the OG Android app). An APK ships with 2.0.x releases but Android is not open for general alpha; iOS runs via TestFlight.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Desktop beta (DB 2.0.x)</strong><small>Windows .exe (x64/ARM64) in the 2.0.x beta line; DB graphs only, data loss possible. Not the OG app.</small><a href="https://github.com/logseq/logseq/releases" target="_blank" rel="noopener">Releases ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes (Export)</strong><small>Built-in CLI and UI exporters convert database graphs to Markdown.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md files</strong><small>Data resides in a local SQLite database. A one-way Markdown Mirror exists; edit-back from .md into the DB is not shipped yet. (OG is the true .md graph.)</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — sanitized HTML</strong><small>Renders inline HTML content securely.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax highlighting</strong><small>Syntax-highlighted code blocks across all supported languages.</small></div></div></td>
+      </tr>
+
+      <!-- NOTION -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">⬛</span><div><a class="app-name" href="https://www.notion.so/" target="_blank" rel="noopener">Notion ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No P2P</strong><small>Cloud-first architecture requiring active internet sync.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Synced blocks</strong><small>Synced blocks reuse content in many pages; edits update every copy.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>Attachment only</strong><small>PDFs are embeds/attachments with no native annotation; third-party tools can export highlights into pages.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native database schemas</strong><small>Relational databases with formulas, rollups, and dynamic properties.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No — Cloud workspace</strong><small>Cloud-hosted data store with limited offline page caching.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Unlimited text / 5 MB upload</strong><small>Unlimited text blocks for individuals; 5 MB upload size limit per file.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Recurring templates</strong><small>Database templates repeat automatically on set calendar schedules.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Android app</strong><small>Full mobile application for Android and iOS devices.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows desktop app.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes</strong><small>Workspace/page exports to Markdown (.md), HTML, or PDF.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md sync</strong><small>Data stored strictly inside Notion's cloud database platform.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No raw HTML rendering</strong><small>Code blocks render source code rather than live HTML pages.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Rich code blocks</strong><small>Code blocks with syntax highlighting and Mermaid diagram rendering.</small></div></div></td>
+      </tr>
+
+      <!-- OBSIDIAN -->
+      <tr data-tags="markdown p2p">
+        <td><div class="app"><span class="app-icon">💎</span><div><a class="app-name" href="https://obsidian.md/" target="_blank" rel="noopener">Obsidian ↗</a></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Via Git / file sync</strong><small>Plain folder vault can be synced via Syncthing, Git, Dropbox, or iCloud.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — ![[note#^block]]</strong><small>Native embeds of notes, headings and blocks. Embeds render live but are edited at the source.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Strong via PDF++ plugin</strong><small>Core links to a PDF page; PDF++ turns text selections into backlinked highlights (pure Markdown sidenotes) that jump to the exact location. Also supports writing annotations into the PDF.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Via properties + Bases</strong><small>Bases core plugin and Dataview add dynamic database views.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local vault</strong><small>Notes are stored strictly as local plain text .md files.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>0 GB included free</strong><small>Desktop/mobile app is free; official Obsidian Sync requires subscription.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes, with Tasks plugin</strong><small>Supports "when done" rules to offset task recurrences relative to completion day.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Android app</strong><small>Mature, fully local mobile client.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows installer working on a local vault folder.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native format</strong><small>Notes are already stored as standard Markdown files.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — true .md files</strong><small>Edits modify local disk files directly for external sync.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — sanitized HTML</strong><small>Renders inline HTML with safety sanitization.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax highlighting</strong><small>Fenced code blocks with Prism-based highlighting.</small></div></div></td>
+      </tr>
+
+      <!-- OUTL -->
+      <tr data-tags="markdown p2p">
+        <td><div class="app"><span class="app-icon">🪢</span><div><a class="app-name" href="https://outl.app/" target="_blank" rel="noopener">outl ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Built-in P2P (tree CRDT)</strong><small>Devices pair directly and sync with a tree CRDT; an optional always-on peer you host is only a convenience.</small><a href="https://github.com/outlmd/outl" target="_blank" rel="noopener">README ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — block references</strong><small>Native block references; importers turn Logseq/Roam ((uid)) and {{embed}} into them.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>No PDF annotation is mentioned.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>Person pages and mentions exist, but typed properties or classes are not documented.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — local workspace</strong><small>Local-first; Markdown is the source of truth.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No hosted cloud</strong><small>No account or upload; sync is device to device (iCloud Drive can host a workspace on Apple devices).</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>Recurring tasks are not mentioned in the README.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Sideloaded APK</strong><small>Signed arm64 APK on every release; not on Play, and each release uses a new key.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not listed</strong><small>README lists macOS/Linux (Homebrew), iOS and Android installs; Windows is not mentioned.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native format</strong><small>Notes are already stored as Markdown files.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — true .md files</strong><small>IDs sit in a sidecar, so the .md you see is the .md you wrote.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>Raw HTML rendering is not mentioned.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>Code-block rendering is not described in the README.</small></div></div></td>
+      </tr>
+      <!-- REFLECT OPEN -->
+      <tr data-tags="markdown">
+        <td><div class="app"><span class="app-icon">🪞</span><div><a class="app-name" href="https://reflect.app/blog/reflect-open" target="_blank" rel="noopener">Reflect Open ↗</a></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Via iCloud / Git</strong><small>Open-source, local-first app operating directly on local Markdown folders.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>Wiki links and backlinks are documented; no block embeds are listed.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>No PDF annotation feature is documented.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Tags &amp; metadata</strong><small>Simple tags and front matter note properties.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local Markdown</strong><small>Local Markdown files on disk (no mandatory Reflect server sync).</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Free &amp; Open Source</strong><small>Reflect Open is open-source (MIT); bring your own AI keys (BYO key).</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Markdown tasks</strong><small>Collects Markdown checkboxes into task views, but lacks relative repeat rules.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>iPhone only (no Android)</strong><small>Mobile is an iPhone beta (TestFlight). Android is out of scope per the project README.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Experimental builds only</strong><small>Mac + iPhone are the supported platforms. Unsigned Windows builds are attached to releases only when they build.</small><a href="https://reflect.app/blog/reflect-open" target="_blank" rel="noopener">Reflect Open release ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native format</strong><small>Notes exist natively as standard Markdown (.md) files.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — true .md files</strong><small>Directly reads and writes raw Markdown files on disk.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No raw HTML rendering</strong><small>Formats standard Markdown text without arbitrary HTML page rendering.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax-highlighted code</strong><small>Clean code blocks with language syntax highlighting.</small></div></div></td>
+      </tr>
+
+      <!-- SIYUAN -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">🏮</span><div><a class="app-name" href="https://github.com/siyuan-note/siyuan" target="_blank" rel="noopener">SiYuan ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>Cloud / S3 / WebDAV sync</strong><small>Sync uses SiYuan Cloud or S3/WebDAV (paid member features); no peer-to-peer engine, and third-party sync folders are unsupported.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — block embeds</strong><small>Block references and embed blocks, including SQL query embeds.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>PDF annotation links</strong><small>Highlights in PDFs can be linked as annotation references from notes.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Custom attributes + databases</strong><small>Custom block attributes and database (table) views; no class/type system.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — local workspace</strong><small>Notes live in a local workspace; Docker self-hosting is also supported.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>0 GB included free</strong><small>Built-in cloud sync and third-party cloud storage are paid member features.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not documented</strong><small>Spaced repetition exists, but recurring-task completion rules are not documented.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Android app</strong><small>Official Android app, also on F-Droid (3.7.x in July 2026).</small><a href="https://f-droid.org/packages/org.b3log.siyuan/" target="_blank" rel="noopener">F-Droid ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows desktop client.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Standard Markdown + assets</strong><small>Exports Markdown with assets, plus PDF, Word and HTML.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md files</strong><small>Documents are stored in SiYuan’s own .sy format, not plain .md files.</small></div></div></td>
+        <td><div class="cell unknown"><span class="mark">?</span><div><strong>Not confirmed</strong><small>Raw HTML rendering was not confirmed.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax highlighting</strong><small>Code blocks with highlighting; also renders charts, flowcharts and math.</small></div></div></td>
+      </tr>
+      <!-- TANA -->
+      <tr data-tags="types">
+        <td><div class="app"><span class="app-icon">🌳</span><div><a class="app-name" href="https://tana.inc/" target="_blank" rel="noopener">Tana ↗</a></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No P2P</strong><small>Cloud workspace architecture.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — live references</strong><small>Referenced nodes appear in multiple places as one editable node (core to Tana).</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No native PDF annotator</strong><small>PDFs can be attached and previewed; external highlights (e.g. via Readwise) can be imported as nodes. Native in-app PDF highlight → node linking with jump-back is a long-standing open request.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Supertags</strong><small>Rich typed schemas, inheritance workflows, and live search nodes.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No — Cloud workspace</strong><small>Cloud-hosted data store.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>500 MB total</strong><small>Free tier includes up to 500 MB total attachment storage.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No native recurrence</strong><small>Recurring date field planned on future roadmap.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Android companion app</strong><small>Mobile app focused on capture and quick search.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Official Windows desktop app with offline mode and native tabs.</small><a href="https://outliner.tana.inc/desktop" target="_blank" rel="noopener">Tana desktop ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — workspace export</strong><small>Full workspace export to Markdown zip or JSON.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md sync</strong><small>Markdown used strictly for export/import.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No raw HTML preview</strong><small>Code blocks format code without running HTML preview canvas.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax-highlighted code</strong><small>Native code blocks with language highlighting.</small></div></div></td>
+      </tr>
+
+      <!-- TIDDLYWIKI -->
+      <tr data-tags="p2p">
+        <td><div class="app"><span class="app-icon">📚</span><div><a class="app-name" href="https://tiddlywiki.com/" target="_blank" rel="noopener">TiddlyWiki ↗</a></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>External sync</strong><small>File-based wiki file synced via external file tools.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Native, note-level</strong><small>{{tiddler}} transclusion is built in, but the unit is a tiddler (note), not a paragraph block.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No native PDF annotation</strong><small>PDFs can be embedded or linked, but there is no built-in highlight linking.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>DIY type system</strong><small>Fields, tags, macros, and templates model custom schemas.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local file</strong><small>Single HTML file or local Node.js folder stored on disk.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No built-in cloud quota</strong><small>No first-party hosted cloud storage quota included.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Custom / plugin-based</strong><small>Requires custom macro scripting or community plugins.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Tiddloid / Tiddloid Lite</strong><small>Third-party Android wrapper applications for local wiki saving.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>TiddlyDesktop / browser</strong><small>Runs in any Windows browser or the TiddlyDesktop wrapper; no dedicated native editor.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Plugin conversion</strong><small>Requires third-party Markdown Export plugin.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No Markdown vault sync</strong><small>Data stored inside HTML/tiddler structures on disk.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — native WikiText</strong><small>Raw HTML tags render directly inside WikiText content.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Source display</strong><small>Syntax highlighting requires optional community plugins.</small></div></div></td>
+      </tr>
+
+      <!-- TINE -->
+      <tr data-tags="markdown p2p">
+        <td><div class="app"><span class="app-icon">🌱</span><div><a class="app-name" href="https://github.com/martinkoutecky/tine" target="_blank" rel="noopener">Tine ↗</a></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Via Syncthing / file sync</strong><small>Designed to operate on Logseq OG Markdown file graphs over local Syncthing.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — OG-style embeds</strong><small>Supports ((block refs)) and {{embed}} on Logseq OG-format graphs.</small><a href="https://github.com/martinkoutecky/tine/wiki" target="_blank" rel="noopener">Tine README ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native PDF highlights (Logseq-style)</strong><small>Text + area highlights stored Logseq-compatibly (hls__ pages + .edn); each highlight becomes a block you can nest notes under and jump back to the exact spot.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Typed structure</strong><small>Tags, tag tables, and optional typed properties in tables.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local graph</strong><small>Local-first client editing Markdown graphs directly on disk.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No built-in cloud quota</strong><small>Local software; does not provide hosted remote cloud storage.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — native</strong><small>Logseq OG-style recurring task syntax (e.g. <code>+1w</code>, <code>.+1w</code>).</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Android app (F-Droid)</strong><small>Native Android build on F-Droid editing local graph folders.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Installer + portable build</strong><small>x64/ARM64 installers and a portable zip. Linux is best-tested; Windows builds are newer and unsigned.</small><a href="https://github.com/martinkoutecky/tine/releases" target="_blank" rel="noopener">Tine releases ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native Markdown</strong><small>Reads and writes standard Logseq OG-compatible Markdown files (not DB graphs).</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — true .md files</strong><small>Edits raw Markdown files directly on the local filesystem.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — sanitized HTML</strong><small>Renders inline/block HTML securely through safe allowlists.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Syntax-highlighted code</strong><small>Fenced code blocks with language-aware syntax highlighting.</small></div></div></td>
+      </tr>
+
+      <!-- TRILIUM -->
+      <tr data-tags="p2p">
+        <td><div class="app"><span class="app-icon">🌲</span><div><a class="app-name" href="https://github.com/TriliumNext/Trilium" target="_blank" rel="noopener">Trilium ↗</a></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Server or desktop-to-desktop</strong><small>Syncs via self-hosted server or direct LAN desktop sync.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Whole-note include</strong><small>Text notes can include another note, but not individual blocks.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>In-PDF annotations</strong><small>Highlights and comments are baked into the PDF file (since ~0.102+); listed in sidebar. No separate note-block linking that jumps from graph notes into PDF locations.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Attributes + templates</strong><small>Labels and relations annotate notes; child notes inherit attributes.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — Local database</strong><small>Notes stored locally inside Trilium's database file.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No included hosted quota</strong><small>Self-hosted or third-party hosting only.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No native recurrence</strong><small>No native task recurrence feature built in.</small></div></div></td>
+        <td><div class="cell partial"><span class="mark">~</span><div><strong>Mobile web + unofficial apps</strong><small>Touch web UI and unofficial Android apps like TriliumDroid.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Native desktop app</strong><small>Desktop client for Windows (plus an optional server mode).</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes</strong><small>Export notes or subtrees as ZIP/Markdown files.</small></div></div></td>
+        <td><div class="cell no"><span class="mark">×</span><div><strong>No live .md vault</strong><small>Notes stored in Trilium's internal database file.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Yes — HTML / Render Notes</strong><small>Render Notes execute HTML, Preact JSX, and custom widgets.</small></div></div></td>
+        <td><div class="cell yes"><span class="mark">✓</span><div><strong>Highlighting + execution</strong><small>Code blocks support highlighting and executable JS Code Notes.</small></div></div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="empty" id="empty">No apps match that search/filter.</div>
+  </div>
+  <p class="reorder-note" id="reorderNote">↔ Drag a column by its ⠿ handle, or use the ← / → buttons. The App column stays pinned first. Your order is saved in this browser when possible.</p>
+
+  <!-- Dynamic Feature Chart Section -->
+  <section class="info-card chart-card" style="margin-top: 32px;">
+    <h2>📊 Dynamic Feature Scoreboard</h2>
+    <p>This chart dynamically calculates and ranks each PKM based on the positive feature indicators (✓ = 1.0 pt, ~ = 0.5 pt, ☁/💾 = 1.0 pt) across visible table rows and feature columns.</p>
+    <div id="featureChart" style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;"></div>
+  </section>
+
+  <div class="section">
+    <article class="info-card">
+      <h2>🧭 How to read the comparison</h2>
+      <p><b>💾 Local First</b> indicates whether data is stored locally on your device first (local-first) or requires a cloud server.</p>
+      <p><b>📤 Markdown Export</b> means the app can create <code>.md</code> files from its data.</p>
+      <p><b>🔄 Live .md Sync</b> means the app edits ordinary <code>.md</code> files directly on disk, allowing standard file synchronization.</p>
+      <p><b>🔗 P2P Sync</b> distinguishes built-in peer-to-peer syncing engines from external tools like Syncthing or Git.</p>
+      <p><b>🧾 Render Raw HTML</b> means HTML typed into notes is rendered visually as webpage content rather than plaintext source.</p>
+      <p><b>💻 Code Blocks / Highlighting</b> means code snippets support syntax-aware coloring and formatting.</p>
+    </article>
+    <article class="info-card">
+      <h2>🎯 Quick picks for your criteria</h2>
+      <ul>
+        <li><b>Native types + P2P:</b> Anytype.</li>
+        <li><b>Block Outliner + Real <code>.md</code> files + Completion Recurrence:</b> Logseq OG or Tine.</li>
+        <li><b>Polished iOS/Mac Design + Blocks + Collections:</b> Craft Docs.</li>
+        <li><b>Cloud Databases + Blocks + Collaborative Workspace:</b> Notion.</li>
+        <li><b>Real <code>.md</code> files + Mature Android App:</b> Obsidian.</li>
+        <li><b>Native types + Completion-based tasks (Cloud):</b> Capacities.</li>
+        <li><b>Open Source Markdown Outliner:</b> Reflect Open.</li>
+      </ul>
+    </article>
+  </div>
+
+  <section class="info-card sources">
+    <h2>🔎 Sources checked</h2>
+    <p>Re-checked against official documentation pages and releases.</p>
+    <details><summary>Craft Docs</summary><div class="source-links"><a href="https://www.craft.do/" target="_blank" rel="noopener">Official site</a><a href="https://www.craft.do/pricing" target="_blank" rel="noopener">Craft Pricing</a></div></details>
+    <details><summary>Logseq OG (file graphs, 0.10.x)</summary><div class="source-links"><a href="https://logseq.com/" target="_blank" rel="noopener">Official site</a><a href="https://github.com/logseq/logseq/releases/tag/0.10.15" target="_blank" rel="noopener">OG 0.10.15 release</a></div></details>
+    <details><summary>Logseq DB (SQLite, 2.0.x beta)</summary><div class="source-links"><a href="https://github.com/logseq/logseq" target="_blank" rel="noopener">GitHub Repository / README</a><a href="https://github.com/logseq/logseq/releases" target="_blank" rel="noopener">DB releases</a></div></details>
+    <details><summary>Notion</summary><div class="source-links"><a href="https://www.notion.so/" target="_blank" rel="noopener">Official site</a></div></details>
+    <details><summary>Reflect Open</summary><div class="source-links"><a href="https://reflect.app/blog/reflect-open" target="_blank" rel="noopener">Reflect Open Release</a></div></details>
+    <details><summary>Anytype</summary><div class="source-links"><a href="https://anytype.io/" target="_blank" rel="noopener">Official site</a></div></details>
+    <details><summary>Capacities</summary><div class="source-links"><a href="https://docs.capacities.io/" target="_blank" rel="noopener">Docs</a></div></details>
+    <details><summary>Obsidian</summary><div class="source-links"><a href="https://obsidian.md/" target="_blank" rel="noopener">Official site</a></div></details>
+  </section>
+
+  <section class="info-card" id="disclaimer" style="margin-top: 16px;">
+    <h2>⚠️ Disclaimer</h2>
+    <ul>
+      <li>Many, but not all, of the platforms and features in this list have been tested by a human reviewer. The rest were acquired by AI, so there could be mistakes.</li>
+      <li>The set of features chosen for display is subjective and does not showcase the entirety of a platform.</li>
+      <li>Last updated: <time datetime="2026-10-30">October 30, 2026</time>.</li>
+      <li>This is made possible mostly by the use of Artificial Intelligence tools such as Claude, ChatGPT and Grok, with human guidance at each step of the way.</li>
+    </ul>
+  </section>
+
+  <footer>Storage quotas checked against official docs. Column reordering supports drag-and-drop and left/right buttons; the App column stays pinned first.</footer>
+</div>
+
+<script>
+(function () {
+  const table = document.getElementById('comparison');
+  const tbody = table.tBodies[0];
+  const headerRow = table.tHead.rows[0];
+  const initialHeaders = Array.from(headerRow.cells);
+  const rows = Array.from(tbody.rows);
+  rows.forEach((r, i) => {
+    r._order = i;
+    Array.from(r.cells).forEach((td, j) => { td.dataset.col = initialHeaders[j].dataset.key; });
+  });
+  const colgroup = table.querySelector('colgroup');
+  Array.from(colgroup.children).forEach((col, i) => { col.dataset.key = initialHeaders[i].dataset.key; });
+  const search = document.getElementById('search');
+  const buttons = Array.from(document.querySelectorAll('.filters button[data-filter]'));
+  const empty = document.getElementById('empty');
+  const hint = document.getElementById('sortHint');
+  const reorderBtn = document.getElementById('reorderBtn');
+  const reorderNote = document.getElementById('reorderNote');
+  let activeFilter = 'all';
+  let sortKey = null, sortStep = 0;
+
+  const getHeaders = () => Array.from(headerRow.cells);
+  const getOrder = () => getHeaders().map(th => th.dataset.key);
+  const getCell = (row, key) => Array.from(row.cells).find(td => td.dataset.col === key);
+
+  function wrapMq(el) {
+    const inner = document.createElement('span');
+    inner.className = 'mq-in';
+    while (el.firstChild) inner.appendChild(el.firstChild);
+    el.classList.add('mq');
+    el.appendChild(inner);
+  }
+  Array.from(tbody.querySelectorAll('.cell')).forEach(cell => {
+    cell._tipHTML = cell.lastElementChild.innerHTML;
+    wrapMq(cell.querySelector('strong'));
+  });
+  Array.from(tbody.querySelectorAll('.app-name')).forEach(wrapMq);
+
+  function measureMq() {
+    document.querySelectorAll('.mq').forEach(el => {
+      el.classList.remove('scroll');
+      el.style.removeProperty('--shift');
+      const over = el.firstElementChild.getBoundingClientRect().width - el.clientWidth;
+      if (over > 1) {
+        el.style.setProperty('--shift', -(over + 6) + 'px');
+        el.style.setProperty('--dur', Math.max(8, 6 + over / 14).toFixed(1) + 's');
+        el.classList.add('scroll');
+      }
+    });
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureMq);
+  window.addEventListener('load', measureMq);
+  window.addEventListener('resize', measureMq);
+  measureMq();
+
+  const motionBtn = document.getElementById('motionBtn');
+  function setPaused(p) {
+    document.documentElement.classList.toggle('no-motion', p);
+    motionBtn.setAttribute('aria-pressed', String(p));
+    motionBtn.textContent = p ? '▶ Resume scrolling text' : '⏸ Pause scrolling text';
+  }
+  motionBtn.addEventListener('click', () => setPaused(motionBtn.getAttribute('aria-pressed') !== 'true'));
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setPaused(true);
+
+  function score(td) {
+    const c = td && td.querySelector('.cell');
+    if (!c) return 0;
+    const mark = c.querySelector('.mark');
+    const m = mark ? mark.textContent.trim() : '';
+    if (c.classList.contains('cloud')) return m === '💾' ? 3 : m === '◐' ? 2.5 : 1;
+    if (c.classList.contains('yes')) return 3;
+    if (c.classList.contains('partial')) return 2;
+    if (c.classList.contains('unknown')) return 1;
+    return 0;
+  }
+  function appName(row) {
+    const cell = getCell(row, 'app');
+    const name = cell && cell.querySelector('.app-name');
+    return name ? name.textContent.replace('↗', '').trim().toLowerCase() : '';
+  }
+  function freeCloudGb(row) {
+    return ({ affine: 10, anytype: 0.1, capacities: 5, craft: 1, tana: 0.5, fibery: 1, notion: 5 })[appName(row)] || 0;
+  }
+  // ---- Sorting + High / Medium / Low grouping ----
+  const GROUP_LABEL = { high: 'High', medium: 'Medium', low: 'Low' };
+  let groupingOn = true;
+  const cmpName = (a, b) => appName(a).localeCompare(appName(b), undefined, { numeric: true, sensitivity: 'base' });
+  function gbTier(row) { const g = freeCloudGb(row); return g >= 5 ? 'high' : g > 0 ? 'medium' : 'low'; }
+  function colTier(row, key) {
+    if (key === 'freecloud') return gbTier(row);
+    const s = score(getCell(row, key));
+    return s >= 3 ? 'high' : s >= 2 ? 'medium' : 'low';
+  }
+  // Total feature score as a percentage, from the marks you see (✓ 3, ~ 2, ? 1, × 0).
+  function calculateTotalScore(row) {
+    const keys = getHeaders().map(th => th.dataset.key).filter(k => k !== 'app');
+    let total = 0;
+    keys.forEach(k => { total += score(getCell(row, k)); });
+    return keys.length ? (total / (3 * keys.length)) * 100 : 0;
+  }
+  // Thirds by rank; equal scores always land in the same group.
+  function appTierMap() {
+    const totals = rows.map(calculateTotalScore), n = rows.length, map = new Map();
+    rows.forEach((r, i) => {
+      const p = totals.filter(t => t > totals[i] + 1e-9).length / n;
+      map.set(r, p < 1 / 3 ? 'high' : p < 2 / 3 ? 'medium' : 'low');
+    });
+    return map;
+  }
+  function groupNote(t) {
+    if (sortKey === 'app') return ({ high: 'top third by total feature score', medium: 'middle third', low: 'bottom third' })[t];
+    if (sortKey === 'freecloud') return ({ high: '5 GB or more free', medium: 'under 5 GB free', low: 'no free cloud' })[t];
+    return ({ high: '✓ strong support', medium: '~ partial / plugin / workaround', low: '× not available or ? not confirmed' })[t];
+  }
+  function makeGroupRow(t, span) {
+    const tr = document.createElement('tr');
+    tr.className = 'group-row g-' + t; tr.dataset.group = t;
+    const td = document.createElement('td'); td.colSpan = span;
+    td.innerHTML = '<span class="glabel"><b>' + GROUP_LABEL[t] + '</b><span class="gnote">' + groupNote(t) + '</span><span class="gcount"></span></span>';
+    tr.appendChild(td);
+    return tr;
+  }
+  function refreshGroups() {
+    let cur = null, n = 0;
+    const flush = () => {
+      if (!cur) return;
+      cur.style.display = n ? '' : 'none';
+      cur.querySelector('.gcount').textContent = '(' + n + (n === 1 ? ' app)' : ' apps)');
+    };
+    Array.from(tbody.children).forEach(tr => {
+      if (tr.classList.contains('group-row')) { flush(); cur = tr; n = 0; }
+      else if (tr.style.display !== 'none') n++;
+    });
+    flush();
+  }
+
+  function applySort() {
+    const active = !!sortKey && sortStep > 0;
+    let list = rows.slice();
+    if (active) {
+      if (sortKey === 'app') {
+        if (sortStep === 1) list.sort((a, b) => cmpName(a, b) || (a._order - b._order));
+        else if (sortStep === 2) list.sort((a, b) => cmpName(b, a) || (a._order - b._order));
+        else list.sort((a, b) => calculateTotalScore(b) - calculateTotalScore(a) || cmpName(a, b) || (a._order - b._order));
+      } else {
+        const dir = sortStep === 1 ? 1 : -1;
+        list.sort((a, b) => {
+          const d = (sortKey === 'freecloud'
+            ? freeCloudGb(b) - freeCloudGb(a)
+            : score(getCell(b, sortKey)) - score(getCell(a, sortKey))) * dir;
+          return d || (a._order - b._order);
+        });
+      }
+    } else {
+      list.sort((a, b) => a._order - b._order);
+    }
+    tbody.querySelectorAll('tr.group-row').forEach(r => r.remove());
+    if (active && groupingOn) {
+      const tiers = sortKey === 'app' ? appTierMap() : null;
+      const buckets = { high: [], medium: [], low: [] };
+      list.forEach(r => buckets[tiers ? tiers.get(r) : colTier(r, sortKey)].push(r));
+      const order = (sortKey !== 'app' && sortStep === 2) ? ['low', 'medium', 'high'] : ['high', 'medium', 'low'];
+      const span = getHeaders().length;
+      order.forEach(t => {
+        if (!buckets[t].length) return;
+        tbody.appendChild(makeGroupRow(t, span));
+        buckets[t].forEach(r => tbody.appendChild(r));
+      });
+    } else {
+      list.forEach(r => tbody.appendChild(r));
+    }
+    getHeaders().forEach(th => {
+      const on = th.dataset.key === sortKey && sortStep > 0;
+      th.setAttribute('aria-sort', !on ? 'none' : (sortStep === 1 ? 'ascending' : 'descending'));
+      if (on && th.dataset.key === 'app' && sortStep === 3) th.dataset.mode = 'score'; else delete th.dataset.mode;
+    });
+    if (!active) {
+      hint.textContent = 'Click a column title to filter, the arrow to sort: best first → worst first → original order. Sorting also splits the apps into High / Medium / Low groups. Click the App arrow for A → Z, Z → A, then total feature score (Σ).';
+    } else {
+      const th = getHeaders().find(h => h.dataset.key === sortKey);
+      const name = th ? th.querySelector('.fbtn > span:first-child').innerText.replace(/\(local first\)/, '').trim() : sortKey;
+      let how = '';
+      if (sortKey === 'app') how = sortStep === 1 ? 'A → Z' : sortStep === 2 ? 'Z → A' : 'highest total feature score first (Σ)';
+      else how = sortStep === 1 ? 'best first' : 'worst first';
+      const g = groupingOn ? ' Grouped into High / Medium / Low' + (sortKey === 'app' && sortStep < 3 ? ' by total feature score, alphabetical inside each group.' : '.') : '';
+      hint.textContent = 'Sorted by ' + name.replace(/^\S+\s/, '') + ' — ' + how + '.' + g + ' Click again to cycle.';
+    }
+    refreshGroups();
+    measureMq();
+  }
+  getHeaders().forEach(th => {
+    th.querySelector('.sort').addEventListener('click', () => {
+      const key = th.dataset.key;
+      const maxSteps = key === 'app' ? 4 : 3;
+      if (sortKey !== key) { sortKey = key; sortStep = 1; }
+      else { sortStep = (sortStep + 1) % maxSteps; }
+      applySort();
+    });
+  });
+  const groupBtn = document.getElementById('groupBtn');
+  groupBtn.addEventListener('click', () => {
+    groupingOn = !groupingOn;
+    groupBtn.setAttribute('aria-pressed', String(groupingOn));
+    groupBtn.textContent = groupingOn ? '▤ Groups: On' : '▤ Groups: Off';
+    applySort();
+  });
+
+  const orderStorageKey = 'pkm-comparison-column-order-v14';
+  const knownKeys = initialHeaders.map(th => th.dataset.key);
+  function setColumnOrder(order, save = true) {
+    const rest = order.filter(k => k && k !== 'app' && knownKeys.includes(k));
+    const unique = ['app', ...new Set(rest)];
+    knownKeys.forEach(k => { if (!unique.includes(k)) unique.push(k); });
+    const headMap = new Map(getHeaders().map(th => [th.dataset.key, th]));
+    const colMap = new Map(Array.from(colgroup.children).map(col => [col.dataset.key, col]));
+    unique.forEach(k => { if (headMap.has(k)) headerRow.appendChild(headMap.get(k)); });
+    unique.forEach(k => { if (colMap.has(k)) colgroup.appendChild(colMap.get(k)); });
+    rows.forEach(row => {
+      const cellMap = new Map(Array.from(row.cells).map(td => [td.dataset.col, td]));
+      unique.forEach(k => { if (cellMap.has(k)) row.appendChild(cellMap.get(k)); });
+    });
+    refreshMoveButtons();
+    if (save) {
+      try { localStorage.setItem(orderStorageKey, JSON.stringify(unique)); } catch (_) {}
+    }
+    measureMq();
+  }
+  function refreshMoveButtons() {
+    const order = getOrder();
+    getHeaders().forEach(th => {
+      th.querySelectorAll('.move-col').forEach(btn => {
+        const index = order.indexOf(th.dataset.key);
+        const dir = Number(btn.dataset.dir);
+        btn.disabled = th.dataset.key === 'app' || index + dir < 1 || index + dir >= order.length;
+      });
+    });
+  }
+  function moveColumn(key, dir) {
+    if (!key || key === 'app') return;
+    const order = getOrder();
+    const from = order.indexOf(key), to = from + dir;
+    if (from < 1 || to < 1 || to >= order.length) return;
+    [order[from], order[to]] = [order[to], order[from]];
+    setColumnOrder(order);
+  }
+  function moveColumnBefore(dragKey, targetKey, after) {
+    if (!dragKey || !targetKey || dragKey === 'app' || targetKey === 'app' || dragKey === targetKey) return;
+    const order = getOrder().filter(k => k !== dragKey);
+    let target = order.indexOf(targetKey);
+    if (target < 1) return;
+    if (after) target += 1;
+    order.splice(target, 0, dragKey);
+    setColumnOrder(order);
+  }
+  function setReorderMode(on) {
+    table.classList.toggle('reorder-mode', on);
+    reorderBtn.setAttribute('aria-pressed', String(on));
+    reorderBtn.textContent = on ? '✓ Finish reordering' : '↔ Reorder columns';
+    reorderNote.classList.toggle('show', on);
+  }
+  reorderBtn.addEventListener('click', () => setReorderMode(reorderBtn.getAttribute('aria-pressed') !== 'true'));
+  getHeaders().forEach(th => {
+    const key = th.dataset.key;
+    th.querySelectorAll('.move-col').forEach(btn => btn.addEventListener('click', e => {
+      e.stopPropagation(); moveColumn(key, Number(btn.dataset.dir));
+    }));
+    const handle = th.querySelector('.drag-handle');
+    if (!handle || key === 'app') return;
+    handle.addEventListener('keydown', e => {
+      if (e.altKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+        e.preventDefault(); moveColumn(key, e.key === 'ArrowLeft' ? -1 : 1);
+      }
+    });
+    handle.addEventListener('dragstart', e => {
+      if (th.dataset.key === 'app') { e.preventDefault(); return; }
+      window._pkmDraggingKey = key;
+      if (e.dataTransfer) { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', key); }
+      th.classList.add('dragging');
+      setReorderMode(true);
+    });
+    handle.addEventListener('dragend', () => {
+      window._pkmDraggingKey = null;
+      getHeaders().forEach(h => h.classList.remove('dragging', 'drag-over'));
+    });
+  });
+  getHeaders().forEach(th => {
+    th.addEventListener('dragover', e => {
+      if (!window._pkmDraggingKey || th.dataset.key === 'app' || th.dataset.key === window._pkmDraggingKey) return;
+      e.preventDefault();
+      if (e.dataTransfer) e.dataTransfer.dropEffect = 'move';
+      th.classList.add('drag-over');
+    });
+    th.addEventListener('dragleave', e => {
+      if (!th.contains(e.relatedTarget)) th.classList.remove('drag-over');
+    });
+    th.addEventListener('drop', e => {
+      const dragKey = window._pkmDraggingKey || (e.dataTransfer && e.dataTransfer.getData('text/plain'));
+      if (!dragKey || th.dataset.key === 'app' || dragKey === th.dataset.key) return;
+      e.preventDefault();
+      const box = th.getBoundingClientRect();
+      moveColumnBefore(dragKey, th.dataset.key, e.clientX > box.left + box.width / 2);
+      getHeaders().forEach(h => h.classList.remove('dragging', 'drag-over'));
+    });
+  });
+  try {
+    const saved = JSON.parse(localStorage.getItem(orderStorageKey) || 'null');
+    if (Array.isArray(saved)) setColumnOrder(saved, false);
+  } catch (_) {}
+  refreshMoveButtons();
+
+  // ---- Per-column filters ----
+  const STATUS = { yes: ['yes', '✓', 'Strong support'], partial: ['partial', '~', 'Partial / plugin / workaround'], no: ['no', '×', 'Not available'], unknown: ['unknown', '?', 'Not confirmed'] };
+  const colFilters = {};
+  const resetBtn = document.getElementById('resetFilters');
+  const pop = document.createElement('div');
+  pop.className = 'fpop'; pop.setAttribute('role', 'dialog');
+  document.body.appendChild(pop);
+  let popKey = null;
+  const esc = t => t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  function rowValue(row, key) {
+    if (key === 'app') return appName(row);
+    const c = getCell(row, key) && getCell(row, key).querySelector('.cell');
+    if (!c) return 'unknown';
+    return ['yes', 'partial', 'no', 'unknown'].find(k => c.classList.contains(k)) || 'unknown';
+  }
+  function passesColumns(row) {
+    for (const key in colFilters) if (!colFilters[key].has(rowValue(row, key))) return false;
+    return true;
+  }
+  function colOptions(key) {
+    if (key === 'app') {
+      const list = rows.map(r => { const a = getCell(r, 'app').querySelector('.app-name'); return [appName(r), a.textContent.replace('\u2197', '').trim()]; });
+      return list.sort((a, b) => a[1].localeCompare(b[1])).map(([v, l]) => ({ v, html: '<span class="t">' + esc(l) + '</span>' }));
+    }
+    return Object.keys(STATUS).map(v => ({ v, html: '<i class="dot ' + STATUS[v][0] + '">' + STATUS[v][1] + '</i><span class="t">' + STATUS[v][2] + '</span>' }));
+  }
+  function refreshFilterUI() {
+    getHeaders().forEach(th => {
+      const set = colFilters[th.dataset.key];
+      if (set) th.setAttribute('data-filtered', ''); else th.removeAttribute('data-filtered');
+      const b = th.querySelector('.fcount');
+      if (b) b.textContent = set ? set.size : '';
+    });
+    resetBtn.disabled = Object.keys(colFilters).length === 0;
+  }
+  function setColFilter(key, set) {
+    if (set && set.size) colFilters[key] = set; else delete colFilters[key];
+    refreshFilterUI(); update();
+  }
+  function closePop() {
+    pop.classList.remove('show');
+    getHeaders().forEach(th => th.querySelector('.fbtn').setAttribute('aria-expanded', 'false'));
+    popKey = null;
+  }
+  function openPop(th) {
+    const key = th.dataset.key;
+    if (popKey === key) { closePop(); return; }
+    closePop(); hideTip();
+    popKey = key;
+    const title = th.querySelector('.fbtn > span:first-child').innerText.trim();
+    const sel = colFilters[key] || new Set();
+    const counts = {};
+    rows.forEach(r => { const v = rowValue(r, key); counts[v] = (counts[v] || 0) + 1; });
+    pop.innerHTML = '<h4>Filter: ' + esc(title) + '</h4>' + colOptions(key).map(o =>
+      '<label><input type="checkbox" value="' + esc(o.v) + '"' + (sel.has(o.v) ? ' checked' : '') + '>' + o.html + (key === 'app' ? '' : '<em>' + (counts[o.v] || 0) + '</em>') + '</label>').join('')
+      + '<div class="fp-actions"><button type="button" data-act="clear">Clear this filter</button></div><p class="fp-note">Tick values to show only those rows. None ticked = no filter.</p>';
+    pop.classList.add('show');
+    th.querySelector('.fbtn').setAttribute('aria-expanded', 'true');
+    const r = th.getBoundingClientRect(), w = pop.offsetWidth, m = 12;
+    pop.style.left = Math.min(Math.max(r.left, m), window.innerWidth - w - m) + 'px';
+    pop.style.top = Math.min(r.bottom + 4, Math.max(m, window.innerHeight - pop.offsetHeight - m)) + 'px';
+  }
+  pop.addEventListener('change', () => {
+    const set = new Set(Array.from(pop.querySelectorAll('input:checked')).map(i => i.value));
+    setColFilter(popKey, set);
+  });
+  pop.addEventListener('click', e => {
+    if (e.target.dataset.act === 'clear') { pop.querySelectorAll('input').forEach(i => i.checked = false); setColFilter(popKey, null); }
+  });
+  getHeaders().forEach(th => th.querySelector('.fbtn').addEventListener('click', e => { e.stopPropagation(); openPop(th); }));
+  resetBtn.addEventListener('click', () => { Object.keys(colFilters).forEach(k => delete colFilters[k]); closePop(); refreshFilterUI(); update(); });
+  document.addEventListener('click', e => { if (popKey && !e.target.closest('.fpop')) closePop(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && popKey) closePop(); });
+  document.querySelector('.table-shell').addEventListener('scroll', closePop, { passive: true });
+  window.addEventListener('resize', closePop);
+
+  function matchesFilter(row) {
+    if (!passesColumns(row)) return false;
+    if (activeFilter === 'all') return true;
+    return (row.dataset.tags || '').split(/\s+/).includes(activeFilter);
+  }
+  function update() {
+    const term = search.value.trim().toLowerCase();
+    let shown = 0;
+    rows.forEach(row => {
+      const visible = matchesFilter(row) && row.textContent.toLowerCase().includes(term);
+      row.style.display = visible ? '' : 'none';
+      if (visible) shown++;
+    });
+    empty.style.display = shown ? 'none' : 'block';
+    refreshGroups();
+    measureMq();
+  }
+  buttons.forEach(b => b.addEventListener('click', () => {
+    activeFilter = b.dataset.filter;
+    buttons.forEach(x => x.classList.toggle('active', x === b));
+    update();
+  }));
+  search.addEventListener('input', update);
+
+  const tip = document.createElement('div');
+  tip.className = 'tip';
+  tip.setAttribute('role', 'tooltip');
+  document.body.appendChild(tip);
+  let hideTimer = null, current = null;
+
+  function showTip(cell) {
+    clearTimeout(hideTimer);
+    if (current && current !== cell) current.classList.remove('tip-open');
+    current = cell;
+    cell.classList.add('tip-open');
+    tip.innerHTML = cell._tipHTML;
+    tip.style.left = '0px'; tip.style.top = '0px';
+    const r = cell.getBoundingClientRect();
+    const w = tip.offsetWidth, h = tip.offsetHeight, m = 12;
+    let left = Math.min(Math.max(r.left, m), window.innerWidth - w - m);
+    let top = r.bottom + 6;
+    if (top + h > window.innerHeight - m) top = Math.max(m, r.top - h - 6);
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tip.classList.add('show');
+  }
+  function hideTip() {
+    tip.classList.remove('show');
+    if (current) current.classList.remove('tip-open');
+    current = null;
+  }
+  function scheduleHide() { clearTimeout(hideTimer); hideTimer = setTimeout(hideTip, 140); }
+
+  Array.from(tbody.querySelectorAll('.cell')).forEach(cell => {
+    cell.tabIndex = 0;
+    cell.addEventListener('mouseenter', () => showTip(cell));
+    cell.addEventListener('mouseleave', scheduleHide);
+    cell.addEventListener('focus', () => showTip(cell));
+    cell.addEventListener('blur', scheduleHide);
+    cell.addEventListener('click', () => {
+      if (current === cell && tip.classList.contains('show') && window.matchMedia('(hover: none)').matches) hideTip();
+      else showTip(cell);
+    });
+  });
+  tip.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+  tip.addEventListener('mouseleave', scheduleHide);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideTip(); });
+  document.querySelector('.table-shell').addEventListener('scroll', hideTip, { passive: true });
+  window.addEventListener('resize', hideTip);
+  document.addEventListener('click', e => { if (!e.target.closest('.cell') && !e.target.closest('.tip')) hideTip(); });
+
+  // ---- Dynamic Feature Chart Rendering ----
+  const chartContainer = document.getElementById('featureChart');
+  function updateChart() {
+    if (!chartContainer) return;
+    const currentHeaders = getHeaders().map(th => th.dataset.key).filter(k => k !== 'app');
+    const visibleRows = rows.filter(r => r.style.display !== 'none');
+    
+    let scores = visibleRows.map(row => {
+      const nameCell = getCell(row, 'app');
+      const name = nameCell ? nameCell.querySelector('.app-name').textContent.replace('↗', '').trim() : 'App';
+      let totalScore = 0;
+      currentHeaders.forEach(key => {
+        const td = getCell(row, key);
+        if (!td) return;
+        const c = td.querySelector('.cell');
+        if (!c) return;
+        if (c.classList.contains('yes') || c.classList.contains('cloud')) {
+          totalScore += 1.0;
+        } else if (c.classList.contains('partial')) {
+          totalScore += 0.5;
+        } else if (c.classList.contains('unknown')) {
+          totalScore += 0.25;
+        }
+      });
+      return { name, score: Number(totalScore.toFixed(1)) };
+    });
+
+    scores.sort((a, b) => b.score - a.score);
+    const maxScore = scores.length ? Math.max(...scores.map(s => s.score), 1) : 1;
+
+    if (scores.length === 0) {
+      chartContainer.innerHTML = '<div style="color: var(--muted); text-align: center; padding: 20px;">No PKMs match the current filter.</div>';
+      return;
+    }
+
+    chartContainer.innerHTML = scores.map(item => {
+      const pct = Math.max(4, Math.round((item.score / maxScore) * 100));
+      return `
+        <div class="chart-bar-row">
+          <div class="chart-bar-label" title="${item.name}">${item.name}</div>
+          <div class="chart-bar-track">
+            <div class="chart-bar-fill" style="width: ${pct}%;"></div>
+          </div>
+          <div class="chart-bar-score">${item.score}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Hook chart update into existing functions
+  const origUpdate = update;
+  update = function() {
+    origUpdate();
+    updateChart();
+  };
+
+  const origApplySort = applySort;
+  applySort = function() {
+    origApplySort();
+    updateChart();
+  };
+
+  const origSetColumnOrder = setColumnOrder;
+  setColumnOrder = function(order, save) {
+    origSetColumnOrder(order, save);
+    updateChart();
+  };
+
+  // Initial render
+  updateChart();
+
+})();
+</script>
+</body>
+</html>

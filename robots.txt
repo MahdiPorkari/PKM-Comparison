@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mahdiporkari.github.io/PKM-Comparison/sitemap.xml
