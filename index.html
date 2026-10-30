@@ -293,6 +293,35 @@
   }
 
 
+
+  /* Collapsing App column. The table layout never changes: only an overlay's width and a few fades animate. */
+  :root { --ease-app: cubic-bezier(.65, 0, .35, 1); }
+  tbody tr:not(.group-row) td:first-child { background: transparent; border-right: 0; box-shadow: none; --cell-bg: var(--panel-soft); }
+  tbody tr:not(.group-row):hover td:first-child { --cell-bg: var(--hover); }
+  tbody tr:not(.group-row) td:first-child::before, thead th[data-key="app"]::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 100%; z-index: -1; border-right: 1px solid var(--line); transition: width .42s var(--ease-app); }
+  tbody tr:not(.group-row) td:first-child::before { background: var(--cell-bg); box-shadow: 6px 0 10px -8px rgba(60,40,28,.18); }
+  thead th[data-key="app"] { background: transparent; border-right: 0; --th-bg: var(--head); }
+  thead th[data-key="app"]::before { background: var(--th-bg); }
+  thead th[data-key="app"][aria-sort="ascending"], thead th[data-key="app"][aria-sort="descending"] { background: transparent; --th-bg: var(--accent-soft); }
+  thead th[data-key="app"][data-filtered] { background: transparent; box-shadow: none; --th-bg: var(--head-on); }
+  thead th[data-key="app"][data-filtered]::before { box-shadow: inset 0 -3px 0 var(--accent); }
+  thead th[data-key="app"] .fbtn { justify-content: flex-start; padding-left: 20px; }
+  tbody tr:not(.group-row) td:first-child .app > div:last-child { transition: opacity .2s ease .22s; }
+  tbody tr:not(.group-row) td:first-child .app-icon { transition: transform .42s var(--ease-app); }
+  thead th[data-key="app"] .fbtn > span:first-child, thead th[data-key="app"] .sort, thead th[data-key="app"] .fcount { transition: opacity .2s ease .22s; }
+  .app-collapsed thead th[data-key="app"]::before, .app-collapsed tbody tr:not(.group-row) td:first-child::before { width: 56px; }
+  .app-collapsed thead th[data-key="app"], .app-collapsed tbody tr:not(.group-row) td:first-child { pointer-events: none; }
+  .app-collapsed tbody tr:not(.group-row) td:first-child .app > div:last-child { opacity: 0; transition: opacity .16s ease 0s; }
+  .app-collapsed tbody tr:not(.group-row) td:first-child .app-icon { transform: translateX(2px); }
+  .app-collapsed thead th[data-key="app"] .fbtn > span:first-child, .app-collapsed thead th[data-key="app"] .sort, .app-collapsed thead th[data-key="app"] .fcount { opacity: 0; transition: opacity .16s ease 0s; }
+  /* Row backgrounds fill the empty strip left behind the narrowed App column while the table has only scrolled a little */
+  thead tr { background: var(--head) linear-gradient(var(--line), var(--line)) bottom / 100% 1px no-repeat; }
+  tbody tr:not(.group-row) { background: var(--panel) linear-gradient(var(--line-soft), var(--line-soft)) bottom / 100% 1px no-repeat; }
+  tbody tr:not(.group-row):hover { background-color: var(--hover); }
+  @media (prefers-reduced-motion: reduce) {
+    tbody tr:not(.group-row) td:first-child::before, thead th[data-key="app"]::before, tbody tr:not(.group-row) td:first-child .app-icon, tbody tr:not(.group-row) td:first-child .app > div:last-child, thead th[data-key="app"] .fbtn > span:first-child, thead th[data-key="app"] .sort { transition: none !important; }
+  }
+
   /* Line icons (replace emoji) */
   .ico { flex: none; width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
   .fbtn .ico { order: -1; width: 15px; height: 15px; margin-right: 7px; opacity: .85; }
@@ -1241,6 +1270,21 @@
     btn.addEventListener('focus', () => { if (!popKey) showTip(btn); });
     btn.addEventListener('blur', scheduleHide);
   });
+
+  // ---- Collapse the App column to icons once the table is scrolled sideways ----
+  (function () {
+    const shell = document.querySelector('.table-shell');
+    // Collapse the moment the table moves at all; expand again when it is back at the left edge.
+    const OUT = 0, BACK = 0;
+    let collapsed = false;
+    function check() {
+      const x = shell.scrollLeft;
+      if (!collapsed && x > OUT) { collapsed = true; table.classList.add('app-collapsed'); }
+      else if (collapsed && x <= BACK) { collapsed = false; table.classList.remove('app-collapsed'); }
+    }
+    shell.addEventListener('scroll', check, { passive: true });
+    check();
+  })();
 
   // ---- Dynamic Feature Chart Rendering ----
   const chartContainer = document.getElementById('featureChart');
